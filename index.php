@@ -31,7 +31,8 @@ if ($conn->connect_error) {
 
 for($i=0;$i<count($masukindb);$i++)
 {
-$sql = "INSERT INTO `panduan_umroh_subbab` (`id`, `panduan_umroh_bab`, `title_id`, `title_ar`) VALUES (NULL, '2', '$masukindb[$i]', NULL);";
+    $pinggirjurang = mysqli_real_escape_string($conn, $masukindb[$i]);
+$sql = "INSERT INTO `panduan_umroh_subbab` (`id`, `panduan_umroh_bab`, `title_id`, `title_ar`) VALUES (NULL, '2', '$pinggirjurang', NULL);";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully"."<br>";
 } else {
